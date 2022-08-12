@@ -18,6 +18,8 @@
             <th>User Lastname</th>
             <th>User Email</th>
             <th>User Password</th>
+            <th>User Edit</th>
+            <th>User Delete</th>
         </tr>
         <tr th:each="usr, state : ${listOfUsers}">
             <td th:utext="${usr.getId()}">User ID</td>
@@ -26,8 +28,12 @@
             <td th:utext="${usr.getLastname()}">User Lastname</td>
             <td th:utext="${usr.getEmail()}">User Email</td>
             <td th:utext="${usr.getPassword()}">User Password</td>
+            <td><a th:href="@{admin/user-update/{id}(id=${usr.id})}">Edit</a></td>
+            <td><a th:href="@{admin/user-delete/{id}(id=${usr.id})}">Delete</a></td>
         </tr>
     </table>
+</br>
+    <p><a href="/admin/user-create">Create user</a></p>
 
 </body>
 </html>
