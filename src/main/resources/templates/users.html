@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Users</title>
+    <style>table th, table td {
+        padding: 5px;
+    }</style>
+</head>
+<body>
+    <h1>Users in DB</h1>
+    <table border="1">
+        <tr>
+            <th>User ID</th>
+            <th>User username</th>
+            <th>User Name</th>
+            <th>User Lastname</th>
+            <th>User Email</th>
+            <th>User Password</th>
+        </tr>
+        <tr th:each="usr, state : ${listOfUsers}">
+            <td th:utext="${usr.getId()}">User ID</td>
+            <td th:utext="${usr.getUsername()}">User username</td>
+            <td th:utext="${usr.getName()}">User Name</td>
+            <td th:utext="${usr.getLastname()}">User Lastname</td>
+            <td th:utext="${usr.getEmail()}">User Email</td>
+            <td th:utext="${usr.getPassword()}">User Password</td>
+        </tr>
+    </table>
+
+</body>
+</html>
